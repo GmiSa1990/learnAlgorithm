@@ -24,6 +24,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+.vscode/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -71,6 +72,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+.ipynb
 
 # pyenv
 .python-version
@@ -89,6 +91,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+tmp/
 
 # Spyder project settings
 .spyderproject
