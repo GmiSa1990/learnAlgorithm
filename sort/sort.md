@@ -58,15 +58,32 @@ def insertion_sort(lst, N):
 
 ## 希尔排序
 
-定义增量序列$D_M > D_{M-1} > … > D_1 = 1$，对每个增量进行“$D_k$-间隔”排序。
+定义增量序列$D_M > D_{M-1} > … > D_1 = 1$，对每个增量进行“$D_k$-间隔”插入排序。这样一来，每次的元素交换可以消除不止一个的逆序对，提高了排序的速度。
 
 ![](../images/shell_sort_1.png)
 
 ```python
+def shell_sort2(lst, N):
+    D = [929, 505,209,109,41,19,5,1,0]
+    idx = 0
+    while D[idx] > N:
+        idx += 1
 
+    while D[idx] >= 1:
+        # insertion sort
+        D_cur = D[idx]
+        for p in range(D_cur, N):
+            tmp = lst[p]
+            for i in range(p-D_cur,-1,-D_cur):
+                if lst[i] > tmp:
+                    lst[i+D_cur] = lst[i]
+                else:
+                    i = i + D_cur
+                    break
+                lst[i] = tmp
+        idx += 1
+    return lst
 ```
-
-
 
 ### 增量序列
 
@@ -82,9 +99,16 @@ def insertion_sort(lst, N):
 
     ${1, 5, 19, 41, 109, …} or  4^i -3 * 2^i + 1$
 
-
+1. 时间复杂度：
+2. 稳定性：不稳定
 
 ## 堆排序
+
+堆排序本质是选择排序，从序列中选出最大元素，并取出，然后在剩余的元素中选出最大元素... ...，选出最大元素的方法是：对序列建立最大堆，根节点便是最大元素。
+
+```python
+
+```
 
 
 
